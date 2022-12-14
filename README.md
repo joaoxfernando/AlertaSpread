@@ -2,6 +2,8 @@
 Script em linha de comando para monitorar a diferença de preço entre duas ações.
 
 ## IMPORTANTE
+- O script utiliza a biblioteca do Yahoo Finance, certifique que tenha ela instalada rodando o comando no termina/prompt de comando
+>python -m pip install yfynance
 
 - Como o script utiliza a biblioteca do Yahoo Finance, ela tem um delay de aproximadamente 15m, então a dica que deixo é rodar primeiro o comando:
 ```
@@ -21,11 +23,12 @@ python alerta.py
 
 ![Exemplo](./screens/basic-commands.PNG)
 
--   Quando o spread estiver abaixo do preço indicado, subirá uma mensagem indicando que o preço foi atingido e que pode abrir ordem de compra/venda.
+-   Quando o spread estiver abaixo do preço indicado, surgirá uma mensagem indicando que o preço alvo foi atingido e que pode abrir ordem de compra/venda.
 
 ![Alvo atingido](./screens/alvo-atingido.PNG)
 
--   Caso deseje receber notificação no PC, basta abrir o arquivo alerta.py com bloco de notas ou outro editor de texto e editar as linhas abaixo retirando o "#" do começo de cada linha.
+-   Caso deseje receber notificação no PC (Windows 10 ou superior), basta abrir o arquivo alerta.py com bloco de notas ou outro editor de texto e editar as linhas abaixo retirando o "#" do começo de cada uma das linhas abaixo, salvar o arquivo e rodar o script novamente.
+
 
 
 ``` python
@@ -52,3 +55,6 @@ notification.show_toast('ALERTA DE PREÇO', PRECO_ACIMA, duration=10)
 
 Caso queira alterar o tempo em que a notificação fique ativa, pode alterar o valor em duration, o padrão está em 10 segundos.
 
+- Exemplo da notificação no PC
+
+![Notificação](./screens/notificacao.png)

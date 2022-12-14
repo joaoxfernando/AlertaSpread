@@ -3,10 +3,10 @@ from datetime import date, datetime
 from time import sleep
 
 # If you will use in your machine, uncomment line below and lines that started with notification
-# from win10toast import ToastNotifier 
+from win10toast import ToastNotifier 
 
 
-# notification = ToastNotifier() 
+notification = ToastNotifier() 
 hora_atual = datetime.strftime(datetime.now(), '%H:%M')
 
 ## Checar se horário atual está dentro do horário de negociações da bolsa. 10h as 17:55
@@ -49,10 +49,10 @@ def checar_precos(spread, pos):
     print('A diferença de preços entre os dois ativos é de: R$ ', diferenca_preco)
     
     if pos == 'acima' and spread < diferenca_preco:
-        # notification.show_toast('ALERTA DE PREÇO', PRECO_ACIMA, duration=10)
+        notification.show_toast('ALERTA DE PREÇO', PRECO_ACIMA, duration=10)
         print(PRECO_ACIMA)
     elif pos != 'acima' and spread > diferenca_preco:
-        # notification.show_toast('ALERTA DE PREÇO', PRECO_ABAIXO, duration=10)
+        notification.show_toast('ALERTA DE PREÇO', PRECO_ABAIXO, duration=10)
         print(PRECO_ABAIXO)
 
 
