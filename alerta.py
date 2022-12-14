@@ -21,7 +21,7 @@ def checa_horario(time):
     if (time > abertura) and (time < fechamento):
         return True
     else:
-        return False
+        return print('Fora do horário de funcionamento do pregão (10h às 17h55')
 
 PRECO_ABAIXO = 'O valor do spread atual está abaixo do selecionado, pode abrir ordem.'
 PRECO_ACIMA = 'O valor do spread atual está acima do selecionado, pode abrir ordem.'
