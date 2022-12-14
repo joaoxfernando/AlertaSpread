@@ -7,8 +7,8 @@ Script em linha de comando para monitorar a diferença de preço entre duas aç�
 ```
 python checa_precos.py
 ```
-- Checar o preço, sabendo que tem o delay, quando rodar o script alerta.py conforme instruções abaixo, colocar com diferença de alguns centavos do seu alvo. Exemplo: Se o alvo for abaixo de R$ 0,60 e a diferença atual for de R$ 0,65. Coloque no script o valor de 0.62 ou 0.61 e abra o home broker quando atingir esse alvo pois pode ser que em tempo real o valor já tenha sido atingido, podendo já abrir a ordem de compra/venda.
-- Quando quiser interromper o script, você pode abertar ctrl + c ou então simplesmente fechar a janela.
+- Sabendo desse delay e da diferença de preços atual, quando rodar o script alerta.py conforme as instruções mais abaixo, ajustar o valor do spread com diferença de alguns centavos do seu alvo. Exemplo: se o alvo for abaixo de R$ 0,60 e a diferença atual for de R$ 0,65. Coloque no script o valor de 0.62 ou 0.61 e abra o home broker quando atingir esse alvo pois pode ser que em tempo real o valor já tenha sido atingido, podendo já abrir a ordem de compra/venda.
+- Quando quiser interromper o script, você pode abertar Ctrl + C ou então simplesmente fechar a janela.
 - O script checa os preços a cada 15 minutos, justamente por conta do delay da própria biblioteca do Yahoo Finance.
 
 ## Rodando o script
