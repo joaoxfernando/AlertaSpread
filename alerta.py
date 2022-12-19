@@ -47,18 +47,22 @@ def checar_precos(spread, pos):
     
     if round(first_pair[1],2) > round(second_pair[1],2):
         diferenca_preco = round(first_pair[1] - second_pair[1], 2)
+        dif_preco = '{:.2f}'.format(float(diferenca_preco))
+
     else:
         diferenca_preco = round(second_pair[1] - first_pair[1], 2)
+        dif_preco = '{:.2f}'.format(float(diferenca_preco))
+
         
     first_pair[0] = first_pair[0][:-3]
     second_pair[0] = second_pair[0][:-3]
 
-    print(f'A diferença de preços entre {first_pair[0]} e {second_pair[0]} é de R$ {diferenca_preco}')
+    print(f'A diferença de preços entre {first_pair[0]} e {second_pair[0]} é de R$ {dif_preco}')
 
-    if pos == 'acima' and spread < diferenca_preco:
+    if pos == 'acima' and (spread < diferenca_preco):
 #        notification.show_toast('ALERTA DE PREÇO', PRECO_ACIMA, duration=10)
         print(PRECO_ACIMA)
-    elif pos != 'acima' and spread > diferenca_preco:
+    elif pos != 'acima' and (spread > diferenca_preco):
 #        notification.show_toast('ALERTA DE PREÇO', PRECO_ABAIXO, duration=10)
         print(PRECO_ABAIXO)
 
