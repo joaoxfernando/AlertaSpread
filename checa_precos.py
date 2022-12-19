@@ -22,9 +22,11 @@ def checar_precos():
             second_pair.append(price)
 
     if round(first_pair[1],2) > round(second_pair[1],2):
-        diferenca_preco = round(first_pair[1] - second_pair[1], 2)
+        diferenca_preco = (first_pair[1] - second_pair[1])
+        diferenca_preco = '{:.2f}'.format(float(diferenca_preco))
     else:
-        diferenca_preco = round(second_pair[1] - first_pair[1], 2)
+        diferenca_preco = (second_pair[1] - first_pair[1])
+        diferenca_preco = '{:.2f}'.format(float(diferenca_preco))
 
 
     ativo1 = first_pair[0].split('.')
@@ -33,10 +35,6 @@ def checar_precos():
     diferenca_preco = str(diferenca_preco).replace('.', ',')
 
     print(f'A diferença de preços entre {ativo1[0]} e {ativo2[0]} é de R$ {diferenca_preco}')
-
-    # print('A diferença de preços entre os dois ativos é de: R$ ', diferenca_preco)
-    # print(f'O ticker {ativo1[0]} está no preço de R$ {first_pair[1]}')
-    # print(f'O ticker {ativo2[0]} está no preço de R$ {second_pair[1]}')
 
 ticker1 = input('Digite o ticker do primeiro par: ')+'.SA'
 ticker2 = input('Digite o ticker do segundo par: ')+'.SA'
