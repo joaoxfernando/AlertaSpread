@@ -21,7 +21,7 @@ def checa_horario(time):
     if (time > abertura) and (time < fechamento):
         return True
     else:
-        return print('Fora do horário de funcionamento do pregão (10h às 17h55')
+        return print('Fora do horário de funcionamento do pregão (10h às 17h55)')
 
 PRECO_ABAIXO = 'O valor do spread atual está abaixo do selecionado, pode abrir ordem.'
 PRECO_ACIMA = 'O valor do spread atual está acima do selecionado, pode abrir ordem.'
@@ -45,9 +45,16 @@ def checar_precos(spread, pos):
             second_pair.append(name)
             second_pair.append(price)
     
-    diferenca_preco = round(first_pair[1] - second_pair[1], 2)
-    print('A diferença de preços entre os dois ativos é de: R$ ', diferenca_preco)
-    
+    if round(first_pair[1],2) > round(second_pair[1],2):
+        diferenca_preco = round(first_pair[1] - second_pair[1], 2)
+    else:
+        diferenca_preco = round(second_pair[1] - first_pair[1], 2)
+        
+    first_pair[0] = first_pair[0][:-3]
+    second_pair[0] = second_pair[0][:-3]
+
+    print(f'A diferença de preços entre {first_pair[0]} e {second_pair[0]} é de R$ {diferenca_preco}')
+
     if pos == 'acima' and spread < diferenca_preco:
 #        notification.show_toast('ALERTA DE PREÇO', PRECO_ACIMA, duration=10)
         print(PRECO_ACIMA)
@@ -56,18 +63,26 @@ def checar_precos(spread, pos):
         print(PRECO_ABAIXO)
 
 
-ticker1 = input('Digite o ticker do primeiro par (de preço mais alto) ')+'.SA'
-stock_pair.append(ticker1)
-ticker2 = input('Digite o ticker do segundo par (de preço mais baixo) ')+'.SA'
-stock_pair.append(ticker2)
 
-spread = float(input('Digite o valor do spread que deseja ser alertado, separando os centavos com ponto ao invés de vírgula. Ex: 0.50 '))
-pos = input('Digite se deseja ser alertado quando o spread esteja acima ou abaixo do valor digitado anteriormente ')
+try: 
+    ticker1 = input('Digite o ticker do primeiro par: ')+'.SA'
+    stock_pair.append(ticker1)
+    ticker2 = input('Digite o ticker do segundo par: ')+'.SA'
+    stock_pair.append(ticker2)
+
+    spread = float(input('Digite o valor do spread que deseja ser alertado, separando os centavos com ponto ao invés de vírgula. Ex: 0.50 '))
+
+    pos = input('Digite se deseja ser alertado quando o spread esteja acima ou abaixo do valor digitado anteriormente ')
+    
+    print('Checando preços...')
+
+    while checa_horario(hora_atual):
+
+        checar_precos(spread, pos)
+        sleep(quinze_minutos)
+
+except ValueError:
+    print('Utilize ponto ao invés de vírgula para separar as casas decimais.')
 
 
-print('Checando preços...')
 
-while checa_horario(hora_atual):
-
-    checar_precos(spread, pos)
-    sleep(quinze_minutos)
