@@ -39,7 +39,8 @@ def checar_precos():
     # print(f'O ticker {ativo2[0]} está no preço de R$ {second_pair[1]}')
 
 ticker1 = input('Digite o ticker do primeiro par: ')+'.SA'
-ticker2 = input('Digite o ticker do segundo par: ')+.'SA'
+ticker2 = input('Digite o ticker do segundo par: ')+'.SA'
+stock_pair.append(ticker1)
 stock_pair.append(ticker2)
 
 checar_precos()
